@@ -7,6 +7,8 @@ class Application
       item_from_path = req.path.split(/items./).last
       if @@item.include?(item)
         resp.write @@item.detect {|item| item.name = item_from_path}.price
+      else
+        resp.write "No such item"
     else
       resp.write "Route not found"
       resp.status = 404
