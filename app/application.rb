@@ -4,8 +4,7 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path.match /items/
-      if queried_item = Item.all.detect {|item| item.name = req.path.split(/items./).last}
-        raise queried_item.inspect
+      if queried_item = @@items.detect {|item| item.name = req.path.split(/items./).last}
         resp.write queried_item.price
       else
         resp.write "Item not found"
