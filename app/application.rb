@@ -9,6 +9,7 @@ class Application
         resp.write @@item.detect {|item| item.name = item_from_path}.price
       else
         resp.write "No such item"
+      end
     else
       resp.write "Route not found"
       resp.status = 404
