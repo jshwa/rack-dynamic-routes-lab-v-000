@@ -8,7 +8,7 @@ class Application
       if Item.all.include?(item_from_path)
         resp.write Item.all.detect {|item| item.name = item_from_path}.price
       else
-        resp.write "No such item"
+        resp.write "Item not found"
       end
     else
       resp.write "Route not found"
