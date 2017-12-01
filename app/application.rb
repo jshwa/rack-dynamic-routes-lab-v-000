@@ -4,7 +4,7 @@ class Application
     req = Rack::Request.new(env)
 
     if req.path.match /items/
-      if queried_item = @@items.detect {|item| item.name = req.path.split(/items./).last}
+      if queried_item = @@items.detect {|item| item.name == req.path.split(/items./).last}
         raise queried_item.inspect
         resp.write queried_item.price
       else
