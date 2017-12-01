@@ -8,4 +8,8 @@ class Item
     @price = price
     @@item << self
   end
+
+  def self.all
+    @@item
+  end
 end
