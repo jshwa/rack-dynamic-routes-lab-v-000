@@ -3,8 +3,8 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
-    if req.path.match /item/
-      item = req.path.split(/item/).last
+    if req.path.match /items/
+      item = req.path.split(/items/).last
       resp.write item.price
     else
       resp.write "Page not Found"
