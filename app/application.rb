@@ -5,6 +5,7 @@ class Application
 
     if req.path.match /items/
       if queried_item = Item.all.detect {|item| item.name = req.path.split(/items./).last}
+        raise queried_item.inspect
         resp.write queried_item.price
       else
         resp.write "Item not found"
